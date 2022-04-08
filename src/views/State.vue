@@ -9,10 +9,10 @@
         </div>
       </form>
 
-      <ul class="list" v-if="friendList.length > 0">
+      <ul class="list" v-if="bookList.length > 0">
         <li
           class="list__item"
-          v-for="(friend, index) in friendList"
+          v-for="(friend, index) in bookList"
           :key="index">
             {{ friend }}
           </li>
@@ -30,8 +30,11 @@ export default {
     }
   },
   computed: {
-    friendList() {
-      return this.$store.state.friends;
+    // friendList() {
+    //   return this.$store.state.friends;
+    // },
+    bookList() {
+      return this.$store.state.books;
     }
   },
   methods: {

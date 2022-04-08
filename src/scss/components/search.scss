@@ -1,0 +1,21 @@
+.search {
+  &__group {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__input {
+    border: 1px solid rgba(171, 171, 171, 0.41);
+    background: none rgb(252, 252, 252);
+    border-radius: 5px;
+    color: rgb(107, 107, 107);
+    padding: 0 10px;
+    width: 504px;
+    height: 45px;
+
+    &:hover {
+      border: 2px solid rgb(57, 76, 143);
+      padding: 0 9px;
+    }
+  }
+}

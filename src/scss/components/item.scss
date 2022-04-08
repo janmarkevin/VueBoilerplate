@@ -1,0 +1,126 @@
+.item {
+  width: 100%;
+  max-width: 280px;
+  background-color: rgb(235, 253, 255);
+  border: 1px solid rgba(3, 180, 198, 0.67);
+  border-radius: 5px;
+  text-align: left;
+  max-height: 660px;
+
+  &--search {
+    max-width: 100%;
+    border: none;
+    background-color: transparent;
+    margin-top: 50px;
+  }
+
+  &__header {
+    color: rgb(50, 67, 128);
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  &__item-text {
+    margin: 0 4px;
+    max-width: 56%;
+
+    &--search {
+      width: 100%;
+      max-width: unset;
+      margin: 0 10px;
+    }
+
+    &--library {
+      width: 69%;
+      max-width: unset;
+      margin: 0 10px;
+    }
+  }
+
+  &__title {
+    font-size: 22px;
+    color: rgb(9, 23, 71);
+    margin-bottom: 5px;
+  }
+
+  &__author {
+    font-size: 16px;
+    color: rgb(9, 23, 71);
+  }
+
+  &__items {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.239);
+    padding: 0 15px 10px;
+    margin-bottom: 17px;
+    display: flex;
+    justify-content: space-between;
+
+    &:last-of-type {
+      border: 0;
+      margin: 0;
+    }
+
+    &--search {
+      padding: 0 20px 25px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__img-wrapper {
+    display: block;
+    max-width: 60px;
+    white-space: nowrap;
+  }
+
+  &__img {
+    white-space: nowrap;
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__item-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+
+    &--search {
+      align-items: flex-start;
+    }
+
+    &--library {
+      align-items: center;
+      cursor: unset;
+
+      p {
+        height: 45px;
+        background: rgb(214, 39, 85);
+        text-align: center;
+        border-radius: 5px;
+        font-weight: bold;
+        color: #fff;
+        font-size: 16px;
+        width: 200px;
+        padding: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+          background: #d14066;
+        }
+      }
+    }
+
+    img {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &__hidden {
+    display: none;
+  }
+}

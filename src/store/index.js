@@ -5,16 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: 'Juan Dela Cruz',
-    friends: [],
     books: [],
     favAuthor: [],
     bookSearch: []
   },
   mutations: {
-    setFriend(state, value) {
-      state.friends.push(value);
-    },
     setAddBook(state, value) {
       state.books.push(value);
     },

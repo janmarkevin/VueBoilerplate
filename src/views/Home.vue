@@ -15,8 +15,9 @@
             <p class="item__author">{{ book.author }}</p>
           </div>
           <div class="item__item-btn item__item-btn--search">
-            <button :value="book" v-on:click="getAddIdBooks(book)" class="button button--transparent">
-              <img src="../assets/add.png" alt="add">
+            <button :value="book" @click.prevent="getAddIdBooks(book)" class="button button--transparent" :disabled="bookListAdded.includes(book)">
+              <img src="../assets/add.png" alt="add" v-if="!bookListAdded.includes(book)">
+              <img src="../assets/check.png" alt="check" v-else>
             </button>
           </div>
         </li>
@@ -37,6 +38,11 @@ export default {
     return {
       bookSearchValue: "",
       bookList: []
+    }
+  },
+  computed: {
+    bookListAdded() {
+      return this.$store.state.books;
     }
   },
   methods: {

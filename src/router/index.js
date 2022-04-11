@@ -11,11 +11,6 @@ const routes = [
     component: Home
   },
   {
-    path: '/state',
-    name: 'State',
-    component: () => import('../views/State.vue')
-  },
-  {
     path: '/axios',
     name: 'Axios',
     component: () => import('../views/Axios.vue')

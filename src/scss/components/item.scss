@@ -89,31 +89,6 @@
       align-items: flex-start;
     }
 
-    &--library {
-      align-items: center;
-      cursor: unset;
-
-      p {
-        height: 45px;
-        background: rgb(214, 39, 85);
-        text-align: center;
-        border-radius: 5px;
-        font-weight: bold;
-        color: #fff;
-        font-size: 16px;
-        width: 200px;
-        padding: 0 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-
-        &:hover {
-          background: #d14066;
-        }
-      }
-    }
-
     img {
       width: 28px;
       height: 28px;

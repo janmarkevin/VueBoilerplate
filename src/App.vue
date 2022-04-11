@@ -7,9 +7,8 @@
             <a href="#">Library</a>
           </h1>
           <div id="nav" class="tab">
-            <router-link to="/" class="tab__item">Home</router-link>
-            <router-link to="/state" class="tab__item">Search</router-link>
-            <router-link to="/axios" class="tab__item">Book</router-link>
+            <router-link to="/" class="tab__item"><img class="image" src="./assets/search.png" alt="Search"></router-link>
+            <router-link to="/axios" class="tab__item"><img class="image" src="./assets/book.png" alt="Book"></router-link>
           </div>
         </div>
       </div>
@@ -30,13 +29,13 @@
                   <img ref="bookImage" :src="favBook.image" :alt="favBook.title" class="item__img">
                 </div>
                 <div class="item__item-text">
-                  <h3 class="item__title" ref="bookTitle">{{ favBook.title }}</h3>
-                  <p class="item__author" ref="bookAuthor">{{ favBook.author }}</p>
+                  <h3 class="item__title">{{ favBook.title }}</h3>
+                  <p class="item__author">{{ favBook.author }}</p>
                 </div>
                 <div class="item__item-btn">
-                  <button :value="favBook" @click.prevent="getFormValues(favBook)" type="button" class="button button--transparent">
-                    <img src="./assets/add.png" alt="add">
-                    <img src="./assets/check.png" alt="check">
+                  <button :value="favBook" @click.prevent="getFormValues(favBook)" type="button" class="button button--transparent" :disabled="bookList.includes(favBook)">
+                    <img src="./assets/add.png" alt="add" v-if="!bookList.includes(favBook)">
+                    <img src="./assets/check.png" alt="check" v-else>
                   </button>
                 </div>
               </li>
@@ -58,14 +57,16 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      id: ''
+      images: 'http://vuejs.org/assets/add.png'
     }
   },
   computed: {
     favAuthorList() {
       return this.$store.state.favAuthor;
     },
-
+    bookList() {
+      return this.$store.state.books;
+    }
   },
   methods: {
     getFavBooks () {
@@ -81,8 +82,6 @@ export default {
             image: favBook.volumeInfo.imageLinks.smallThumbnail,
             id: favBook.id
           };
-          // console.log(info)
-          console.log(info);
           this.$store.commit('setFavAuthor', info);
         });
       })

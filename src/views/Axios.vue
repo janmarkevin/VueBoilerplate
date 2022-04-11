@@ -16,8 +16,7 @@
             <p class="item__author">{{ book.author }}</p>
           </div>
           <div class="item__item-btn item__item-btn--library">
-            <p>Remove from library</p>
-            <div>{{ book.id }}</div>
+            <button :value="book" class="button button--library" @click.prevent="removeBook(book)">Remove from library</button>
           </div>
         </li>
       </ul>
@@ -26,8 +25,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   data() {
     return {
@@ -40,31 +37,11 @@ export default {
     }
   },
   methods: {
-    getBooks() {
-      for (let i = 0; i < this.bookList.length; i++ ) {
-        this.id = this.bookList[i];
-        console.log(this.id);
-
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=` +this.id)
-        .then(response => {
-          const listIdsBooks = response.data.items;
-
-          listIdsBooks.forEach(listIdsBook => {
-            const author = listIdsBook.volumeInfo.authors;
-            const info = {
-              title: listIdsBook.volumeInfo.title,
-              author: author.join(', '),
-              image: listIdsBook.volumeInfo.imageLinks.smallThumbnail,
-              id: listIdsBook.id
-            };
-            this.$store.commit('setAddBook', info)
-          })
-        })
-      }
+    removeBook(value) {
+      this.bookList.splice(this.bookList.indexOf(value), 1);
     }
   },
   created() {
-    this.getBooks();
   }
 }
 </script>
